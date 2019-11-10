@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <display-name></display-name>	
+ <!--   配置登陆过滤器 -->
+    <filter>
+        <filter-name>LoginChkFilter</filter-name>
+        <filter-class>com.gx.servlet.LoginChkFilter</filter-class>
+    </filter>
+	<!-- 只拦截servlet -->
+    <filter-mapping>
+        <filter-name>LoginChkFilter</filter-name>
+        <url-pattern>/servlet/*</url-pattern>
+    </filter-mapping>
+  <servlet>
+  <servlet-name>LoginServlet</servlet-name>
+  <servlet-class>com.gx.servlet.LoginServlet</servlet-class>
+   <init-param>
+  <param-name>UserName</param-name>
+  <param-value>root</param-value>
+  </init-param>
+  <init-param>
+  <param-name>password</param-name>
+  <param-value>root</param-value>
+  </init-param>
+  <init-param>
+  <param-name>url</param-name>
+  <param-value>jdbc:mysql://localhost:3306/library</param-value>
+  </init-param>
+  <init-param>
+  <param-name>Driver</param-name>
+  <param-value>com.mysql.jdbc.Driver</param-value>
+  </init-param>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>LoginServlet</servlet-name>
+  <url-pattern>/servlet/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  <servlet-name>DownBox</servlet-name>
+  <servlet-class>com.gx.servlet.InsertBook.DownBox</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>DownBox</servlet-name>
+  <url-pattern>/servlet/DownBox</url-pattern>
+  </servlet-mapping>
+    <servlet>
+  <servlet-name>InsertBook</servlet-name>
+  <servlet-class>com.gx.servlet.InsertBook.InsertBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>InsertBook</servlet-name>
+  <url-pattern>/servlet/InsertBook</url-pattern>
+  </servlet-mapping>
+      <servlet>
+  <servlet-name>Image</servlet-name>
+  <servlet-class>com.gx.servlet.Image</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Image</servlet-name>
+  <url-pattern>/servlet/Image</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+  <servlet-name>BorrowBooksServlet</servlet-name>
+  <servlet-class>com.gx.servlet.BorrowBooks.BorrowBooksServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>BorrowBooksServlet</servlet-name>
+  <url-pattern>/servlet/BorrowBooksServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+  <servlet-name>BookCardVerification</servlet-name>
+  <servlet-class>com.gx.servlet.BorrowBooks.BookCardVerification</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>BookCardVerification</servlet-name>
+  <url-pattern>/servlet/BookCardVerification</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+  <servlet-name>SelectBookByName</servlet-name>
+  <servlet-class>com.gx.servlet.BorrowBooks.SelectBookByName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SelectBookByName</servlet-name>
+  <url-pattern>/servlet/SelectBookByName</url-pattern>
+  </servlet-mapping>
+  
+       <servlet>
+  <servlet-name>SelectBookByBookCard</servlet-name>
+  <servlet-class>com.gx.servlet.returnBook.SelectBookByBookCard</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SelectBookByBookCard</servlet-name>
+  <url-pattern>/servlet/SelectBookByBookCard</url-pattern>
+  </servlet-mapping>
+   
+    <servlet>
+  <servlet-name>ContinueBook</servlet-name>
+  <servlet-class>com.gx.servlet.returnBook.ContinueBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ContinueBook</servlet-name>
+  <url-pattern>/servlet/ContinueBook</url-pattern>
+  </servlet-mapping>
+   
+    <servlet>
+  <servlet-name>ReturnBook</servlet-name>
+  <servlet-class>com.gx.servlet.returnBook.ReturnBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ReturnBook</servlet-name>
+  <url-pattern>/servlet/ReturnBook</url-pattern>
+  </servlet-mapping>
+   
+    
+    <servlet>
+  <servlet-name>DimSelect</servlet-name>
+  <servlet-class>com.gx.servlet.dimSelect.DimSelect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>DimSelect</servlet-name>
+  <url-pattern>/servlet/DimSelect</url-pattern>
+  </servlet-mapping>
+   
+    <servlet>
+  <servlet-name>DimServlet</servlet-name>
+  <servlet-class>com.gx.servlet.dimSelect.DimServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>DimServlet</servlet-name>
+  <url-pattern>/servlet/DimServlet</url-pattern>
+  </servlet-mapping>
+   
+   <servlet>
+  <servlet-name>UpdateBook</servlet-name>
+  <servlet-class>com.gx.servlet.updateBook.UpdateBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>UpdateBook</servlet-name>
+  <url-pattern>/servlet/UpdateBook</url-pattern>
+  </servlet-mapping>
+   
+   <servlet>
+  <servlet-name>LoseBook</servlet-name>
+  <servlet-class>com.gx.servlet.updateBook.LoseBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>LoseBook</servlet-name>
+  <url-pattern>/servlet/LoseBook</url-pattern>
+  </servlet-mapping>
+   
+    <servlet>
+  <servlet-name>SendsmsServlet</servlet-name>
+  <servlet-class>com.gx.servlet.sendSMS.SendsmsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SendsmsServlet</servlet-name>
+  <url-pattern>/servlet/SendsmsServlet</url-pattern>
+  </servlet-mapping>
+   
+   <servlet>
+  <servlet-name>InsertUser</servlet-name>
+  <servlet-class>com.gx.servlet.insertUser.InsertUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>InsertUser</servlet-name>
+  <url-pattern>/servlet/InsertUser</url-pattern>
+  </servlet-mapping>
+   
+     <servlet>
+  <servlet-name>MyRecord</servlet-name>
+  <servlet-class>com.gx.servlet.myRecord.MyRecord</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>MyRecord</servlet-name>
+  <url-pattern>/servlet/MyRecord</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  <servlet-name>Evaluate</servlet-name>
+  <servlet-class>com.gx.servlet.myRecord.Evaluate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Evaluate</servlet-name>
+  <url-pattern>/servlet/Evaluate</url-pattern>
+  </servlet-mapping>
+   
+      <servlet>
+  <servlet-name>MonthServlet</servlet-name>
+  <servlet-class>com.gx.servlet.Month.MonthServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>MonthServlet</servlet-name>
+  <url-pattern>/servlet/MonthServlet</url-pattern>
+  </servlet-mapping>
+   
+       <servlet>
+  <servlet-name>Recommend</servlet-name>
+  <servlet-class>com.gx.servlet.recommend.Recommend</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Recommend</servlet-name>
+  <url-pattern>/servlet/Recommend</url-pattern>
+  </servlet-mapping>
+   
+        <servlet>
+  <servlet-name>PageServlet</servlet-name>
+  <servlet-class>com.gx.servlet.BorrowBooks.PageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>PageServlet</servlet-name>
+  <url-pattern>/servlet/PageServlet</url-pattern>
+  </servlet-mapping>
+   
+   <servlet>
+  <servlet-name>Statistics</servlet-name>
+  <servlet-class>com.gx.servlet.statistics.Statistics</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Statistics</servlet-name>
+  <url-pattern>/servlet/Statistics</url-pattern>
+  </servlet-mapping>
+   
+     <servlet>
+  <servlet-name>StatisticsServlet</servlet-name>
+  <servlet-class>com.gx.servlet.statistics.StatisticsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>StatisticsServlet</servlet-name>
+  <url-pattern>/servlet/StatisticsServlet</url-pattern>
+  </servlet-mapping>
+   
+     <servlet>
+  <servlet-name>Recommend2</servlet-name>
+  <servlet-class>com.gx.servlet.recommend.Recommend2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Recommend2</servlet-name>
+  <url-pattern>/servlet/Recommend2</url-pattern>
+  </servlet-mapping>
+   
+       <servlet>
+  <servlet-name>SelectBookName</servlet-name>
+  <servlet-class>com.gx.servlet.BorrowBooks.SelectBookName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SelectBookName</servlet-name>
+  <url-pattern>/servlet/SelectBookName</url-pattern>
+  </servlet-mapping>
+   
+   <servlet>
+  <servlet-name>SelectBookCard</servlet-name>
+  <servlet-class>com.gx.servlet.returnBook.SelectBookCard</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SelectBookCard</servlet-name>
+  <url-pattern>/servlet/SelectBookCard</url-pattern>
+  </servlet-mapping>
+   
+      <servlet>
+  <servlet-name>SendMail</servlet-name>
+  <servlet-class>com.gx.servlet.sendSMS.SendMail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SendMail</servlet-name>
+  <url-pattern>/servlet/SendMail</url-pattern>
+  </servlet-mapping>
+   
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
